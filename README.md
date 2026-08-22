@@ -29,6 +29,42 @@ RidRim is a complete, production-quality Flutter finance app scaffold: 30+ scree
 - **Polished Auth Flow** — gradient-hero, bottom-sheet-card login/register/forgot-password/OTP/reset-password screens.
 - **Light & Dark Mode** — a full token-based theme system (colors, spacing, radii, typography) with a single teal accent.
 
+## Screenshots
+
+<table>
+<tr>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104654.png" width="200"/><br/><sub>Dashboard</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104700.png" width="200"/><br/><sub>Transactions</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104709.png" width="200"/><br/><sub>Accounts</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104716.png" width="200"/><br/><sub>AI Chat</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104723.png" width="200"/><br/><sub>Budget</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104817.png" width="200"/><br/><sub>Savings</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104802.png" width="200"/><br/><sub>Forecast</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104740.png" width="200"/><br/><sub>Profile</sub></td>
+</tr>
+</table>
+
+<details>
+<summary><b>Light theme</b></summary>
+<br/>
+
+<table>
+<tr>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104853.png" width="200"/><br/><sub>Dashboard</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104903.png" width="200"/><br/><sub>Transactions</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104912.png" width="200"/><br/><sub>Accounts</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104919.png" width="200"/><br/><sub>AI Chat</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104840.png" width="200"/><br/><sub>Settings</sub></td>
+<td></td>
+</tr>
+</table>
+
+</details>
+
 ## Requirements
 
 - Flutter SDK `^3.9.2` (stable channel)
@@ -79,13 +115,50 @@ lib/
 │   ├── models/
 │   ├── repositories/
 │   └── datasources/mock/
-└── features/                     # One folder per feature (screens + widgets)
-    ├── dashboard/  transactions/  accounts/  chat/  budget/  savings/
-    ├── bills/  debt/  investments/  analytics/  forecast/
-    ├── financial_health/  alerts/  more/
-    ├── auth/  onboarding/  splash/
-    └── profile/  settings/  subscription/  help/
+└── features/                     # One folder per feature -- see below
 ```
+
+## Feature Folder Structure
+
+Every entry under `lib/features/` follows the same shape: a `presentation/`
+folder holding `screens/` and `widgets/`, plus a `controller/` (or
+`presentation/state`) folder only where a feature needs shared logic beyond
+per-screen `setState`. `dashboard/`, fully expanded, is representative:
+
+```
+features/dashboard/
+├── controller/
+│   └── dashboard_controller.dart     # DashboardLogicMixin -- loads accounts,
+│                                      #   budgets, transactions for the screen
+└── presentation/
+    ├── screens/
+    │   └── dashboard_screen.dart     # The routed screen (AppRoutes.dashboard)
+    └── widgets/
+        ├── ai_insight_card.dart      # Hero AI-insight + sparkline card
+        ├── budget_progress_list.dart
+        ├── quick_link_card.dart
+        ├── quick_link_data.dart
+        ├── section_header.dart
+        └── spend_by_category_chart.dart
+```
+
+The full feature list, grouped the way they appear in the app's navigation:
+
+| Group | Feature folders |
+|---|---|
+| Bottom-nav tabs | `dashboard/`  `transactions/`  `accounts/`  `chat/`  `more/` |
+| Finance (pushed from Dashboard/More) | `budget/`  `savings/`  `bills/`  `debt/`  `investments/`  `analytics/`  `forecast/`  `financial_health/`  `alerts/` |
+| Account | `profile/`  `settings/`  `subscription/`  `help/` |
+| Auth & app shell | `auth/`  `onboarding/`  `splash/`  `home/` (bottom-nav shell) |
+
+A handful of features add one extra folder beyond `presentation/screens` +
+`presentation/widgets` because they carry state a single screen can't hold
+alone:
+
+- **`controller/`** — `analytics/`, `dashboard/`, `financial_health/`, `profile/`
+- **`presentation/controller/`** — `transactions/` (shared add-transaction form state)
+- **`presentation/state/`** — `chat/` (message history), `profile/` (edit-form state)
+- **`presentation/utils/`** — `profile/` (small formatting helpers local to that feature)
 
 ## Architecture Overview
 
