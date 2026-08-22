@@ -1,4 +1,4 @@
-import 'package:ai_saas/features/dashboard/presentation/widgets/section_header.dart';
+import 'package:ridrim/features/dashboard/presentation/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/routing/app_router.dart';
@@ -9,7 +9,6 @@ import '../../../../core/utils/helpers.dart';
 import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/app_loading.dart';
-import '../../../../domain/entities/account.dart';
 import '../../../accounts/presentation/widgets/account_card.dart';
 import '../../../transactions/presentation/widgets/transaction_tile.dart';
 import '../../controller/dashboard_controller.dart';
@@ -135,21 +134,24 @@ class _DashboardScreenState extends State<DashboardScreen>
               onSeeAll: () => context.push(AppRoutes.accounts),
             ),
             SizedBox(height: responsive.spacing(AppSpacing.sm)),
-            SizedBox(
-              height: responsive.width(120),
-              child: ListView.separated(
+            IntrinsicHeight(
+              child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                itemCount: accounts.length,
-                separatorBuilder: (_, __) =>
-                    SizedBox(width: responsive.spacing(AppSpacing.sm)),
-                itemBuilder: (context, index) {
-                  final Account account = accounts[index];
-                  return AccountCard(
-                    account: account,
-                    compact: true,
-                    onTap: () => context.push('/accounts/${account.id}'),
-                  );
-                },
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    for (int i = 0; i < accounts.length; i++) ...[
+                      if (i > 0)
+                        SizedBox(width: responsive.spacing(AppSpacing.sm)),
+                      AccountCard(
+                        account: accounts[i],
+                        compact: true,
+                        onTap: () =>
+                            context.push('/accounts/${accounts[i].id}'),
+                      ),
+                    ],
+                  ],
+                ),
               ),
             ),
             SizedBox(height: responsive.spacing(AppSpacing.xl)),

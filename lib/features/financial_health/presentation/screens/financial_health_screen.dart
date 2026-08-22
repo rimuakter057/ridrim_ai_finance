@@ -1,5 +1,5 @@
-import 'package:ai_saas/features/financial_health/controller/finance_health_controller.dart';
-import 'package:ai_saas/features/financial_health/presentation/widget/factor_card.dart';
+import 'package:ridrim/features/financial_health/controller/finance_health_controller.dart';
+import 'package:ridrim/features/financial_health/presentation/widget/factor_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_spacing.dart';

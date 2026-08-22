@@ -1,11 +1,11 @@
 {
-    "name": "nexar_finance",
-    "short_name": "nexar_finance",
+    "name": "RidRim",
+    "short_name": "RidRim",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#00332D",
+    "theme_color": "#0D9488",
+    "description": "RidRim -- an AI-first personal finance app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

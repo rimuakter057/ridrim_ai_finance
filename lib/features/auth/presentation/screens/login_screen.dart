@@ -11,10 +11,11 @@ import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text_field.dart';
 import '../widgets/auth_divider.dart';
-import '../widgets/auth_header.dart';
+import '../widgets/auth_scaffold.dart';
 import '../widgets/social_auth_buttons.dart';
 
-/// Email/password sign-in screen.
+/// Email/password sign-in screen, presented as a bottom-sheet-style card
+/// docked under the teal gradient hero (see [AuthScaffold]).
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -64,93 +65,72 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final ResponsiveHelper responsive = ResponsiveHelper.of(context);
 
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: responsive.maxContentWidth),
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(responsive.spacing(AppSpacing.xxl)),
-              child: Form(
-                key: _formKey,
-                autovalidateMode: _autoValidateMode,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const AuthHeader(
-                      title: AppStrings.loginTitle,
-                      subtitle: AppStrings.loginSubtitle,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.section)),
-                    AppTextField(
-                      label: AppStrings.emailLabel,
-                      hint: AppStrings.emailHint,
-                      prefixIcon: Icons.mail_outline,
-                      keyboardType: TextInputType.emailAddress,
-                      controller: _emailController,
-                      validator: Validators.email,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.lg)),
-                    AppTextField(
-                      label: AppStrings.passwordLabel,
-                      hint: AppStrings.passwordHintLogin,
-                      prefixIcon: Icons.lock_outline,
-                      obscureText: _obscurePassword,
-                      suffixIcon: _obscurePassword
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      onSuffixIconTap: () =>
-                          setState(() => _obscurePassword = !_obscurePassword),
-                      controller: _passwordController,
-                      validator: Validators.password,
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: _goToForgotPassword,
-                        child: const Text(AppStrings.forgotPasswordLabel),
-                      ),
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.md)),
-                    AppButton(
-                      label: AppStrings.loginButtonLabel,
-                      isLoading: _isSubmitting,
-                      onPressed: _submit,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.xxl)),
-                    const AuthDivider(),
-                    SizedBox(height: responsive.spacing(AppSpacing.xxl)),
-                    SocialAuthButtons(
-                      onGooglePressed: () => context.showSnackBar(
-                        AppStrings.googleSignInComingSoon,
-                      ),
-                      onApplePressed: () => context.showSnackBar(
-                        AppStrings.appleSignInComingSoon,
-                      ),
-                      onFacebookPressed: () => context.showSnackBar(
-                        AppStrings.facebookSignInComingSoon,
-                      ),
-                    ),
-
-                    SizedBox(height: responsive.spacing(AppSpacing.xxl)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          AppStrings.noAccountPrompt,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                        TextButton(
-                          onPressed: _goToRegister,
-                          child: const Text(AppStrings.signUpLabel),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+    return AuthScaffold(
+      showBackButton: false,
+      icon: Icons.lock_open_rounded,
+      title: AppStrings.loginTitle,
+      subtitle: AppStrings.loginSubtitle,
+      child: Form(
+        key: _formKey,
+        autovalidateMode: _autoValidateMode,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            AppTextField(
+              label: AppStrings.emailLabel,
+              hint: AppStrings.emailHint,
+              prefixIcon: Icons.mail_outline,
+              keyboardType: TextInputType.emailAddress,
+              controller: _emailController,
+              validator: Validators.email,
+            ),
+            SizedBox(height: responsive.spacing(AppSpacing.lg)),
+            AppTextField(
+              label: AppStrings.passwordLabel,
+              hint: AppStrings.passwordHintLogin,
+              prefixIcon: Icons.lock_outline,
+              obscureText: _obscurePassword,
+              suffixIcon: _obscurePassword
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
+              onSuffixIconTap: () =>
+                  setState(() => _obscurePassword = !_obscurePassword),
+              controller: _passwordController,
+              validator: Validators.password,
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: _goToForgotPassword,
+                child: const Text(AppStrings.forgotPasswordLabel),
               ),
             ),
-          ),
+            SizedBox(height: responsive.spacing(AppSpacing.md)),
+            AppButton(
+              label: AppStrings.loginButtonLabel,
+              fullWidth: true,
+              isLoading: _isSubmitting,
+              onPressed: _submit,
+            ),
+            SizedBox(height: responsive.spacing(AppSpacing.xxl)),
+            const AuthDivider(),
+            SizedBox(height: responsive.spacing(AppSpacing.xxl)),
+            const SocialAuthButtons(),
+            SizedBox(height: responsive.spacing(AppSpacing.xxl)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppStrings.noAccountPrompt,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                TextButton(
+                  onPressed: _goToRegister,
+                  child: const Text(AppStrings.signUpLabel),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

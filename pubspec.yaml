@@ -1,6 +1,6 @@
 
-  name: ai_saas
-  description: "A new Flutter project."
+  name: ridrim
+  description: "RidRim -- an AI-first personal finance app."
 
   publish_to: 'none'
 
@@ -55,8 +55,13 @@
   flutter_launcher_icons:
     android: true
     ios: true
+    web:
+      generate: true
+      image_path: "assets/logo/logo.png"
+      background_color: "#00332D"
+      theme_color: "#0D9488"
     image_path: "assets/logo/logo.png"
-    adaptive_icon_background: "#FFFFFF"
+    adaptive_icon_background: "#00332D"
     adaptive_icon_foreground: "assets/logo/logo.png"
     remove_alpha_ios: true
 

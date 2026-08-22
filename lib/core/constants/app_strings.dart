@@ -11,8 +11,8 @@ class AppStrings {
   // ---------------------------------------------------------------------
   // Branding
   // ---------------------------------------------------------------------
-  static const String appName = 'RimRid Finance';
-  static const String appTagline = 'Your AI Finance Companion';
+  static const String appName = 'RidRim';
+  static const String appTagline = 'Smarter Money, Better Future';
 
   // ---------------------------------------------------------------------
   // Common actions
@@ -78,7 +78,7 @@ class AppStrings {
 
   static const String onboardingTitle3 = 'Your Goals, Within Reach';
   static const String onboardingDescription3 =
-      'Turn spending insights into real progress with RimRid Finance.';
+      'Turn spending insights into real progress with RidRim.';
 
   static const String onboardingChatAssistantHeader = 'AI Finance Assistant';
   static const String onboardingGptModel = 'Live';
@@ -116,16 +116,12 @@ class AppStrings {
   static const String continueWithGoogle = 'Continue with Google';
   static const String continueWithApple = 'Continue with Apple';
   static const String continueWithFacebook = 'Continue with Facebook';
-  static const String googleSignInComingSoon = 'Google sign-in coming soon.';
-  static const String appleSignInComingSoon = 'Apple sign-in coming soon.';
-  static const String facebookSignInComingSoon =
-      'Facebook sign-in coming soon.';
 
   // ---------------------------------------------------------------------
   // Login
   // ---------------------------------------------------------------------
   static const String loginTitle = 'Welcome Back';
-  static const String loginSubtitle = 'Log in to continue to RimRid Finance.';
+  static const String loginSubtitle = 'Log in to continue to RidRim.';
   static const String passwordHintLogin = 'Enter your password';
   static const String forgotPasswordLabel = 'Forgot Password?';
   static const String loginButtonLabel = 'Log In';
@@ -349,7 +345,7 @@ class AppStrings {
   // Main navigation
   // ---------------------------------------------------------------------
   static const String navDashboard = 'Dashboard';
-  static const String navTransactions = 'Transactions';
+  static const String navTransactions = 'Activity';
   static const String navAccounts = 'Accounts';
   static const String navAiChat = 'AI Chat';
   static const String navMore = 'More';
@@ -525,20 +521,23 @@ class AppStrings {
 
   static const String planFree = 'Free';
   static const String planPro = 'Pro';
-  static const String planBusiness = 'Business';
+  static const String planBusiness = 'Premium';
   static const String activeStatusBadge = 'ACTIVE';
 
-  static const String featureBasicChat = 'Basic AI chat access';
-  static const String featureLimitedMessages = '20 messages per day';
-  static const String featureStandardSpeed = 'Standard response speed';
-  static const String featureUnlimitedChat = 'Unlimited AI chat access';
-  static const String featureAllTools = 'Access to all AI tools';
-  static const String featurePrioritySpeed = 'Priority response speed';
+  static const String featureBasicChat = 'Manual transaction tracking';
+  static const String featureLimitedMessages = 'Up to 2 linked accounts';
+  static const String featureStandardSpeed = 'Basic budgeting tools';
+  static const String featureUnlimitedChat = 'Unlimited linked accounts';
+  static const String featureAllTools =
+      'AI financial insights & forecasting';
+  static const String featurePrioritySpeed =
+      'Custom budgets & savings goals';
   static const String featureAdvancedModels =
-      'Access to advanced AI models';
-  static const String featureTeamSeats = '5 team member seats';
-  static const String featureApiAccess = 'API access for integrations';
-  static const String featureDedicatedSupport = 'Dedicated priority support';
+      'Bill & subscription tracking';
+  static const String featureTeamSeats = 'Shared household accounts';
+  static const String featureApiAccess =
+      'Advanced investment & debt tools';
+  static const String featureDedicatedSupport = 'Priority AI support';
 
   // ---------------------------------------------------------------------
   // Settings
@@ -639,13 +638,13 @@ class AppStrings {
 
   // About App screen
   static const String aboutAppDescription =
-      'RimRid Finance brings your accounts, spending, and budgets into '
+      'RidRim brings your accounts, spending, and budgets into '
       'one clean, fast, AI-first app -- track transactions, understand '
       'your spending, and ask your AI assistant anything about your '
       'money, all in one place.';
   static const String aboutAppMadeWith = 'Made with Flutter';
   static const String aboutAppCopyright =
-      '© 2026 RimRid Finance. All rights reserved.';
+      '© 2026 RidRim. All rights reserved.';
 
   // Export My Data
   static const String exportDataConfirmTitle = 'Export My Data';

@@ -7,12 +7,12 @@ import 'core/utils/theme_mode_notifier.dart';
 
 void main() {
   runApp(
-    const RimRidFinance(),
+    const RidRimApp(),
   );
 }
 
-class RimRidFinance extends StatelessWidget {
-  const RimRidFinance({super.key});
+class RidRimApp extends StatelessWidget {
+  const RidRimApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class RimRidFinance extends StatelessWidget {
       valueListenable: themeModeNotifier,
       builder: (context, mode, _) {
         return MaterialApp.router(
-          title: 'RimRid Finance',
+          title: 'RidRim',
           debugShowCheckedModeBanner: false,
           builder: (context, child) {
             return ValueListenableBuilder<FontSizeOption>(

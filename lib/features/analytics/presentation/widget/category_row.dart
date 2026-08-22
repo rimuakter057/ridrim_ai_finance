@@ -1,12 +1,12 @@
 
 
-import 'package:ai_saas/core/theme/app_radius.dart';
-import 'package:ai_saas/core/theme/app_spacing.dart';
-import 'package:ai_saas/core/utils/extensions.dart';
-import 'package:ai_saas/core/utils/helpers.dart';
-import 'package:ai_saas/core/utils/responsive.dart';
-import 'package:ai_saas/core/utils/transaction_category_style.dart';
-import 'package:ai_saas/domain/entities/transaction.dart';
+import 'package:ridrim/core/theme/app_radius.dart';
+import 'package:ridrim/core/theme/app_spacing.dart';
+import 'package:ridrim/core/utils/extensions.dart';
+import 'package:ridrim/core/utils/helpers.dart';
+import 'package:ridrim/core/utils/responsive.dart';
+import 'package:ridrim/core/utils/transaction_category_style.dart';
+import 'package:ridrim/domain/entities/transaction.dart';
 import 'package:flutter/material.dart';
 
 class CategoryRankRow extends StatelessWidget {

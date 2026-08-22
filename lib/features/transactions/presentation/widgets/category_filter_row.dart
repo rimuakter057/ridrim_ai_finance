@@ -5,8 +5,7 @@ import '../../../../core/utils/responsive.dart';
 import '../../../../core/utils/transaction_category_style.dart';
 import '../../../../domain/entities/transaction.dart';
 
-/// Horizontal row of category filter chips, with a leading "All" chip.
-/// `null` in [selected]/[onSelected] represents "All".
+
 class CategoryFilterRow extends StatelessWidget {
   const CategoryFilterRow({
     super.key,

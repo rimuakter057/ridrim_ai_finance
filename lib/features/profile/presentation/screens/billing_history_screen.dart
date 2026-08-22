@@ -1,4 +1,4 @@
-import 'package:ai_saas/features/profile/presentation/widgets/billing_bar_chart.dart';
+import 'package:ridrim/features/profile/presentation/widgets/billing_bar_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_strings.dart';

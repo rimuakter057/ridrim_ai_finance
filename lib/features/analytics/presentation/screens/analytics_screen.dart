@@ -1,7 +1,7 @@
-import 'package:ai_saas/domain/entities/transaction.dart';
-import 'package:ai_saas/features/analytics/controller/analytics_controller.dart';
-import 'package:ai_saas/features/analytics/presentation/widget/category_row.dart';
-import 'package:ai_saas/features/analytics/presentation/widget/state_card.dart';
+import 'package:ridrim/domain/entities/transaction.dart';
+import 'package:ridrim/features/analytics/controller/analytics_controller.dart';
+import 'package:ridrim/features/analytics/presentation/widget/category_row.dart';
+import 'package:ridrim/features/analytics/presentation/widget/state_card.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_spacing.dart';

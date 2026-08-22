@@ -1,8 +1,8 @@
-import 'package:ai_saas/core/theme/app_radius.dart';
-import 'package:ai_saas/core/theme/app_spacing.dart' show AppSpacing;
-import 'package:ai_saas/core/utils/extensions.dart';
-import 'package:ai_saas/core/utils/responsive.dart';
-import 'package:ai_saas/core/widgets/app_card.dart';
+import 'package:ridrim/core/theme/app_radius.dart';
+import 'package:ridrim/core/theme/app_spacing.dart' show AppSpacing;
+import 'package:ridrim/core/utils/extensions.dart';
+import 'package:ridrim/core/utils/responsive.dart';
+import 'package:ridrim/core/widgets/app_card.dart';
 import 'package:flutter/material.dart';
 
 

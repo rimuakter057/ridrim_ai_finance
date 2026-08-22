@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:ai_saas/main.dart';
+import 'package:ridrim/main.dart';
 
 void main() {
   testWidgets('App boots to the splash screen', (WidgetTester tester) async {
-    await tester.pumpWidget(const RimRidFinance());
+    await tester.pumpWidget(const RidRimApp());
     await tester.pump();
 
-    expect(find.text('RimRid Finance'), findsOneWidget);
+    expect(find.text('RidRim'), findsOneWidget);
   });
 }

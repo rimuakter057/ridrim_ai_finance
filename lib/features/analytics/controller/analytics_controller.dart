@@ -5,7 +5,6 @@ import '../../../../data/repositories/transaction_repository_impl.dart';
 import '../../../../domain/entities/transaction.dart';
 import '../../../../domain/repositories/transaction_repository.dart';
 import '../../../../domain/usecases/get_transactions.dart';
-import '../../../../core/utils/transaction_category_style.dart';
 
 /// Holds data loading + derived (computed) analytics state.
 /// Mix this into `_AnalyticsScreenState` so the screen only deals with UI.

@@ -1,4 +1,4 @@
-import 'package:ai_saas/features/profile/controller/payment_method_controller.dart';
+import 'package:ridrim/features/profile/controller/payment_method_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_strings.dart';

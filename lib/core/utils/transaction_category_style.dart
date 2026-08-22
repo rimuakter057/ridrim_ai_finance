@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/account.dart';
+import '../../domain/entities/debt.dart';
+import '../../domain/entities/investment.dart';
 import '../../domain/entities/transaction.dart';
 import '../theme/app_colors.dart';
 
@@ -75,5 +77,60 @@ extension AccountTypeX on AccountType {
         AccountType.savings => Icons.savings_outlined,
         AccountType.credit => Icons.credit_card_rounded,
         AccountType.investment => Icons.trending_up_rounded,
+      };
+}
+
+extension InvestmentTypeX on InvestmentType {
+  String get label => switch (this) {
+        InvestmentType.stock => 'Stock',
+        InvestmentType.etf => 'ETF',
+        InvestmentType.mutualFund => 'Mutual Fund',
+        InvestmentType.crypto => 'Crypto',
+        InvestmentType.bond => 'Bond',
+      };
+
+  IconData get icon => switch (this) {
+        InvestmentType.stock => Icons.show_chart_rounded,
+        InvestmentType.etf => Icons.pie_chart_outline_rounded,
+        InvestmentType.mutualFund => Icons.account_balance_outlined,
+        InvestmentType.crypto => Icons.currency_bitcoin_rounded,
+        InvestmentType.bond => Icons.shield_outlined,
+      };
+
+  Color get color => switch (this) {
+        InvestmentType.stock => AppColors.tileBlueIcon,
+        InvestmentType.etf => AppColors.tileTealIcon,
+        InvestmentType.mutualFund => AppColors.tileIndigoIcon,
+        InvestmentType.crypto => AppColors.tileAmberIcon,
+        InvestmentType.bond => AppColors.tileSlateIcon,
+      };
+}
+
+extension DebtTypeX on DebtType {
+  String get label => switch (this) {
+        DebtType.creditCard => 'Credit Card',
+        DebtType.personalLoan => 'Personal Loan',
+        DebtType.studentLoan => 'Student Loan',
+        DebtType.autoLoan => 'Auto Loan',
+        DebtType.mortgage => 'Mortgage',
+        DebtType.other => 'Other Debt',
+      };
+
+  IconData get icon => switch (this) {
+        DebtType.creditCard => Icons.credit_card_rounded,
+        DebtType.personalLoan => Icons.request_quote_outlined,
+        DebtType.studentLoan => Icons.school_outlined,
+        DebtType.autoLoan => Icons.directions_car_filled_outlined,
+        DebtType.mortgage => Icons.home_outlined,
+        DebtType.other => Icons.receipt_long_outlined,
+      };
+
+  Color get color => switch (this) {
+        DebtType.creditCard => AppColors.tileRedIcon,
+        DebtType.personalLoan => AppColors.tileAmberIcon,
+        DebtType.studentLoan => AppColors.tileIndigoIcon,
+        DebtType.autoLoan => AppColors.tileBlueIcon,
+        DebtType.mortgage => AppColors.tilePurpleIcon,
+        DebtType.other => AppColors.tileSlateIcon,
       };
 }

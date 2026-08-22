@@ -1,5 +1,5 @@
-import 'package:ai_saas/core/theme/app_spacing.dart';
-import 'package:ai_saas/core/utils/extensions.dart';
+import 'package:ridrim/core/theme/app_spacing.dart';
+import 'package:ridrim/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
 

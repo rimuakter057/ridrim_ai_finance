@@ -1,4 +1,4 @@
-import 'package:ai_saas/core/utils/transaction_category_style.dart';
+import 'package:ridrim/core/utils/transaction_category_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/helpers.dart';

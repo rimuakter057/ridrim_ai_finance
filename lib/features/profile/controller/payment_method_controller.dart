@@ -1,5 +1,5 @@
-import 'package:ai_saas/domain/entities/payment_card_item.dart';
-import 'package:ai_saas/features/profile/presentation/widgets/add_card_sheet.dart';
+import 'package:ridrim/domain/entities/payment_card_item.dart';
+import 'package:ridrim/features/profile/presentation/widgets/add_card_sheet.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/app_strings.dart';

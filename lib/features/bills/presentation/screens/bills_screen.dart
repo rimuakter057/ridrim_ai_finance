@@ -1,4 +1,4 @@
-import 'package:ai_saas/features/bills/presentation/widgets/section_label.dart';
+import 'package:ridrim/features/bills/presentation/widgets/section_label.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_spacing.dart';

@@ -11,10 +11,11 @@ import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text_field.dart';
 import '../widgets/auth_divider.dart';
-import '../widgets/auth_header.dart';
+import '../widgets/auth_scaffold.dart';
 import '../widgets/social_auth_buttons.dart';
 
-/// User sign-up screen.
+/// User sign-up screen, presented as a bottom-sheet-style card docked
+/// under the teal gradient hero (see [AuthScaffold]).
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -68,105 +69,72 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     final ResponsiveHelper responsive = ResponsiveHelper.of(context);
 
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        leading: Navigator.canPop(context)
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back_ios_new_rounded),
-                onPressed: () => Navigator.maybePop(context),
-              )
-            : null,
-      ),
-      body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: responsive.maxContentWidth),
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(responsive.spacing(AppSpacing.xxl)),
-              child: Form(
-                key: _formKey,
-                autovalidateMode: _autoValidateMode,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const AuthHeader(
-                      title: AppStrings.registerTitle,
-                      subtitle: AppStrings.registerSubtitle,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.section)),
-                    AppTextField(
-                      label: AppStrings.fullNameLabel,
-                      hint: AppStrings.fullNameHint,
-                      prefixIcon: Icons.person_outline,
-                      controller: _nameController,
-                      validator: Validators.required,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.lg)),
-                    AppTextField(
-                      label: AppStrings.emailLabel,
-                      hint: AppStrings.emailHint,
-                      prefixIcon: Icons.mail_outline,
-                      keyboardType: TextInputType.emailAddress,
-                      controller: _emailController,
-                      validator: Validators.email,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.lg)),
-                    AppTextField(
-                      label: AppStrings.passwordLabel,
-                      hint: AppStrings.passwordHintRegister,
-                      prefixIcon: Icons.lock_outline,
-                      obscureText: _obscurePassword,
-                      suffixIcon: _obscurePassword
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      onSuffixIconTap: () =>
-                          setState(() => _obscurePassword = !_obscurePassword),
-                      controller: _passwordController,
-                      validator: Validators.password,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.xl)),
-                    AppButton(
-                      label: AppStrings.registerButtonLabel,
-                      isLoading: _isSubmitting,
-                      onPressed: _submit,
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.xxl)),
-                    const AuthDivider(),
-                    SizedBox(height: responsive.spacing(AppSpacing.xxl)),
-                    SocialAuthButtons(
-                      onGooglePressed: () => context.showSnackBar(
-                        AppStrings.googleSignInComingSoon,
-                      ),
-                      onApplePressed: () => context.showSnackBar(
-                        AppStrings.appleSignInComingSoon,
-                      ),
-                      onFacebookPressed: () => context.showSnackBar(
-                        AppStrings.facebookSignInComingSoon,
-                      ),
-                    ),
-                    SizedBox(height: responsive.spacing(AppSpacing.xxl)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          AppStrings.alreadyHaveAccountPrompt,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                        TextButton(
-                          onPressed: _goToLogin,
-                          child: const Text(AppStrings.signInLabel),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+    return AuthScaffold(
+      icon: Icons.person_add_alt_1_rounded,
+      title: AppStrings.registerTitle,
+      subtitle: AppStrings.registerSubtitle,
+      child: Form(
+        key: _formKey,
+        autovalidateMode: _autoValidateMode,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            AppTextField(
+              label: AppStrings.fullNameLabel,
+              hint: AppStrings.fullNameHint,
+              prefixIcon: Icons.person_outline,
+              controller: _nameController,
+              validator: Validators.required,
             ),
-          ),
+            SizedBox(height: responsive.spacing(AppSpacing.lg)),
+            AppTextField(
+              label: AppStrings.emailLabel,
+              hint: AppStrings.emailHint,
+              prefixIcon: Icons.mail_outline,
+              keyboardType: TextInputType.emailAddress,
+              controller: _emailController,
+              validator: Validators.email,
+            ),
+            SizedBox(height: responsive.spacing(AppSpacing.lg)),
+            AppTextField(
+              label: AppStrings.passwordLabel,
+              hint: AppStrings.passwordHintRegister,
+              prefixIcon: Icons.lock_outline,
+              obscureText: _obscurePassword,
+              suffixIcon: _obscurePassword
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
+              onSuffixIconTap: () =>
+                  setState(() => _obscurePassword = !_obscurePassword),
+              controller: _passwordController,
+              validator: Validators.password,
+            ),
+            SizedBox(height: responsive.spacing(AppSpacing.xl)),
+            AppButton(
+              label: AppStrings.registerButtonLabel,
+              fullWidth: true,
+              isLoading: _isSubmitting,
+              onPressed: _submit,
+            ),
+            SizedBox(height: responsive.spacing(AppSpacing.xxl)),
+            const AuthDivider(),
+            SizedBox(height: responsive.spacing(AppSpacing.xxl)),
+            const SocialAuthButtons(),
+            SizedBox(height: responsive.spacing(AppSpacing.xxl)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppStrings.alreadyHaveAccountPrompt,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                TextButton(
+                  onPressed: _goToLogin,
+                  child: const Text(AppStrings.signInLabel),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

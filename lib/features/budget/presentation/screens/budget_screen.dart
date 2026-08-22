@@ -1,4 +1,4 @@
-import 'package:ai_saas/features/budget/presentation/widgets/summary_state.dart';
+import 'package:ridrim/features/budget/presentation/widgets/summary_state.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/utils/extensions.dart';

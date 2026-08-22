@@ -1,4 +1,4 @@
-import 'package:ai_saas/features/transactions/presentation/widgets/detail_row.dart';
+import 'package:ridrim/features/transactions/presentation/widgets/detail_row.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_radius.dart';

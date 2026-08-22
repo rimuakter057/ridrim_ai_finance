@@ -30,12 +30,12 @@ class AuthScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final ResponsiveHelper responsive = ResponsiveHelper.of(context);
-    final double heroHeight = responsive.heightPercent(34);
-    final double sheetTop = responsive.heightPercent(28);
+    final double heroHeight = responsive.heightPercent(32);
 
     return Scaffold(
-      backgroundColor: AppColors.primaryDeep,
-      body: Stack(
+      backgroundColor: theme.scaffoldBackgroundColor,
+      resizeToAvoidBottomInset: true,
+      body: Column(
         children: [
           // ── Gradient hero ────────────────────────────────────────────
           Container(
@@ -57,7 +57,7 @@ class AuthScaffold extends StatelessWidget {
                         padding: EdgeInsets.only(
                           bottom: responsive.spacing(AppSpacing.lg),
                         ),
-                        child: _BackButton(),
+                        child: const _BackButton(),
                       ),
                     Container(
                       width: responsive.width(56),
@@ -98,9 +98,9 @@ class AuthScaffold extends StatelessWidget {
           ),
 
           // ── Bottom-sheet-style form card ─────────────────────────────
-          Positioned.fill(
-            top: sheetTop,
+          Expanded(
             child: Container(
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: theme.scaffoldBackgroundColor,
                 borderRadius: BorderRadius.vertical(
@@ -153,6 +153,8 @@ class AuthScaffold extends StatelessWidget {
 }
 
 class _BackButton extends StatelessWidget {
+  const _BackButton();
+
   @override
   Widget build(BuildContext context) {
     if (!Navigator.canPop(context)) return const SizedBox.shrink();

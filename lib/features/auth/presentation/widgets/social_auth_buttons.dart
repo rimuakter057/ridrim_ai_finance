@@ -80,6 +80,10 @@ class _SocialIconButton extends StatelessWidget {
   /// and Facebook keep their official brand colors untouched.
   final bool tintWithForeground;
 
+  /// No handler was supplied -- render as a non-interactive, visually
+  /// dimmed placeholder rather than a tappable "coming soon" stub.
+  bool get _isDisabled => onPressed == null;
+
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -89,26 +93,29 @@ class _SocialIconButton extends StatelessWidget {
 
     return SizedBox(
       height: responsive.buttonHeight(52),
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: borderRadius,
-        child: InkWell(
+      child: Opacity(
+        opacity: _isDisabled ? 0.4 : 1,
+        child: Material(
+          color: Colors.transparent,
           borderRadius: borderRadius,
-          onTap: onPressed,
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: borderRadius,
-              border: Border.all(color: colorScheme.outline),
-            ),
-            child: SvgPicture.asset(
-              assetPath,
-              width: responsive.iconSize(22),
-              height: responsive.iconSize(22),
-              semanticsLabel: semanticLabel,
-              colorFilter: tintWithForeground
-                  ? ColorFilter.mode(colorScheme.onSurface, BlendMode.srcIn)
-                  : null,
+          child: InkWell(
+            borderRadius: borderRadius,
+            onTap: onPressed,
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: borderRadius,
+                border: Border.all(color: colorScheme.outline),
+              ),
+              child: SvgPicture.asset(
+                assetPath,
+                width: responsive.iconSize(22),
+                height: responsive.iconSize(22),
+                semanticsLabel: semanticLabel,
+                colorFilter: tintWithForeground
+                    ? ColorFilter.mode(colorScheme.onSurface, BlendMode.srcIn)
+                    : null,
+              ),
             ),
           ),
         ),

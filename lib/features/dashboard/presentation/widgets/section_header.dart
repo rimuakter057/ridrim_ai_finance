@@ -2,11 +2,11 @@
 
 
 
-import 'package:ai_saas/core/utils/extensions.dart';
+import 'package:ridrim/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
-  const SectionHeader({required this.title, required this.onSeeAll});
+  const SectionHeader({super.key, required this.title, required this.onSeeAll});
 
   final String title;
   final VoidCallback onSeeAll;

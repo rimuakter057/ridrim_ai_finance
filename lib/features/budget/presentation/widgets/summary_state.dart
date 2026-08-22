@@ -1,4 +1,4 @@
-import 'package:ai_saas/core/utils/extensions.dart';
+import 'package:ridrim/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
 class SummaryStat extends StatelessWidget {

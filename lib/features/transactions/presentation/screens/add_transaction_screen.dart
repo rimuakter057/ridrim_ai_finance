@@ -1,5 +1,5 @@
-import 'package:ai_saas/features/transactions/presentation/controller/add_transaction_controller.dart';
-import 'package:ai_saas/features/transactions/presentation/widgets/picked_field.dart';
+import 'package:ridrim/features/transactions/presentation/controller/add_transaction_controller.dart';
+import 'package:ridrim/features/transactions/presentation/widgets/picked_field.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/utils/responsive.dart';

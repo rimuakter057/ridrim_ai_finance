@@ -1,9 +1,9 @@
-import 'package:ai_saas/core/utils/extensions.dart';
-import 'package:ai_saas/core/utils/helpers.dart' show AppHelpers;
-import 'package:ai_saas/core/utils/transaction_category_style.dart';
-import 'package:ai_saas/core/widgets/app_card.dart';
-import 'package:ai_saas/domain/entities/budget.dart';
-import 'package:ai_saas/features/budget/presentation/widgets/radial_progress_gauge.dart';
+import 'package:ridrim/core/utils/extensions.dart';
+import 'package:ridrim/core/utils/helpers.dart' show AppHelpers;
+import 'package:ridrim/core/utils/transaction_category_style.dart';
+import 'package:ridrim/core/widgets/app_card.dart';
+import 'package:ridrim/domain/entities/budget.dart';
+import 'package:ridrim/features/budget/presentation/widgets/radial_progress_gauge.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_spacing.dart';
