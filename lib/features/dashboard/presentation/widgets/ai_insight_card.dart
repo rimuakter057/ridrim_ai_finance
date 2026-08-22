@@ -25,6 +25,15 @@ class AiInsightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final ResponsiveHelper responsive = ResponsiveHelper.of(context);
+    final bool isDark = theme.brightness == Brightness.dark;
+
+    // The glass overlay in AppGlassCard washes this hero card out to a pale
+    // mint in light mode, so the on-card content needs a darker ink there
+    // instead of the fixed white used against the vivid dark-mode gradient.
+    final Color onCardColor = isDark ? Colors.white : AppColors.primaryDeep;
+    final Color badgeColor = isDark
+        ? Colors.white.withValues(alpha: 0.2)
+        : AppColors.primaryDeep.withValues(alpha: 0.12);
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -41,12 +50,12 @@ class AiInsightCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(responsive.spacing(AppSpacing.xs)),
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.2),
+                    color: badgeColor,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.auto_awesome_rounded,
-                    color: Colors.white,
+                    color: onCardColor,
                     size: responsive.iconSize(16),
                   ),
                 ),
@@ -54,7 +63,7 @@ class AiInsightCard extends StatelessWidget {
                 Text(
                   'AI Insight',
                   style: theme.textTheme.labelLarge?.copyWith(
-                    color: Colors.white,
+                    color: onCardColor,
                   ),
                 ),
               ],
@@ -63,14 +72,14 @@ class AiInsightCard extends StatelessWidget {
             Text(
               insight,
               style: theme.textTheme.titleMedium?.copyWith(
-                color:Colors.white,
+                color: onCardColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
             SizedBox(height: responsive.spacing(AppSpacing.lg)),
             SizedBox(
               height: responsive.width(48),
-              child: _Sparkline(values: sparklineValues),
+              child: _Sparkline(values: sparklineValues, color: onCardColor),
             ),
           ],
         ),
@@ -80,9 +89,10 @@ class AiInsightCard extends StatelessWidget {
 }
 
 class _Sparkline extends StatelessWidget {
-  const _Sparkline({required this.values});
+  const _Sparkline({required this.values, required this.color});
 
   final List<double> values;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -107,12 +117,12 @@ class _Sparkline extends StatelessWidget {
                 FlSpot(i.toDouble(), values[i]),
             ],
             isCurved: true,
-            color: Colors.white,
+            color: color,
             barWidth: 2.5,
             dotData: const FlDotData(show: false),
             belowBarData: BarAreaData(
               show: true,
-              color: Colors.white.withValues(alpha: 0.18),
+              color: color.withValues(alpha: 0.18),
             ),
           ),
         ],

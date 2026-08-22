@@ -82,7 +82,7 @@ class BillTile extends StatelessWidget {
                 ),
                 Text(
                   '${bill.payee ?? ''} · $_dueLabel',
-                  maxLines: 1,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: context.textTheme.bodySmall?.copyWith(
                     color: statusColor,
