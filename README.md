@@ -31,6 +31,8 @@ RidRim is a complete, production-quality Flutter finance app scaffold: 30+ scree
 
 ## Screenshots
 
+**Dark theme**
+
 <table>
 <tr>
 <td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104654.png" width="200"/><br/><sub>Dashboard</sub></td>
@@ -46,24 +48,22 @@ RidRim is a complete, production-quality Flutter finance app scaffold: 30+ scree
 </tr>
 </table>
 
-<details>
-<summary><b>Light theme</b></summary>
-<br/>
+**Light theme**
 
 <table>
 <tr>
 <td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104853.png" width="200"/><br/><sub>Dashboard</sub></td>
 <td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104903.png" width="200"/><br/><sub>Transactions</sub></td>
 <td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104912.png" width="200"/><br/><sub>Accounts</sub></td>
+<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104919.png" width="200"/><br/><sub>AI Chat</sub></td>
 </tr>
 <tr>
-<td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104919.png" width="200"/><br/><sub>AI Chat</sub></td>
 <td align="center"><img src="assets/images/app_screenshots/Screenshot_20260822_104840.png" width="200"/><br/><sub>Settings</sub></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 </table>
-
-</details>
 
 ## Requirements
 
